@@ -1,0 +1,35 @@
+/* Carousel Arrows */
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+    padding: 20px;
+    z-index: 10;
+    opacity: 0.5;
+    transition: opacity 0.3s;
+}
+
+.carousel-arrow:hover {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+}
+
+.arrow-left {
+    left: 20px;
+}
+
+.arrow-right {
+    right: 20px;
+}
+
+/* Ensure dots are centered */
+.carousel-dots {
+    left: 50%;
+    transform: translateX(-50%);
+}

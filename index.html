@@ -15,6 +15,7 @@
     <!-- Header -->
     <header class="header">
         <div class="header-container">
+            <!-- ... existing header content ... -->
             <!-- Logo -->
             <a href="#" class="logo">
                 <span class="logo-text">TESLA</span>
@@ -22,7 +23,7 @@
 
             <!-- Nav -->
             <nav class="nav-center">
-                <a href="#">Vehicles</a>
+                <a href="#" id="vehicles-link">Vehicles</a>
                 <a href="#">Energy</a>
                 <a href="#">Charging</a>
                 <a href="#">Discover</a>
@@ -54,31 +55,78 @@
                 </a>
             </div>
         </div>
+
+        <!-- Hidden Vehicles Dropdown (Feature 1) -->
+        <div id="vehicles-dropdown" class="vehicles-dropdown hidden">
+            <div class="dropdown-content">
+                <div class="vehicle-item">
+                    <img src="https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Vehicles-Model-S.png"
+                        alt="Model S">
+                    <h3>Model S</h3>
+                    <div class="links">
+                        <a href="#">Learn</a>
+                        <a href="#">Order</a>
+                    </div>
+                </div>
+                <div class="vehicle-item">
+                    <img src="https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Vehicles-Model-3.png"
+                        alt="Model 3">
+                    <h3>Model 3</h3>
+                    <div class="links">
+                        <a href="#">Learn</a>
+                        <a href="#">Order</a>
+                    </div>
+                </div>
+                <div class="vehicle-item">
+                    <img src="https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Vehicles-Model-X.png"
+                        alt="Model X">
+                    <h3>Model X</h3>
+                    <div class="links">
+                        <a href="#">Learn</a>
+                        <a href="#">Order</a>
+                    </div>
+                </div>
+                <div class="vehicle-item">
+                    <img src="https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Mega-Menu-Vehicles-Model-Y.png"
+                        alt="Model Y">
+                    <h3>Model Y</h3>
+                    <div class="links">
+                        <a href="#">Learn</a>
+                        <a href="#">Order</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
 
     <main class="main-container">
 
         <!-- Main Hero -->
-        <section class="hero-card"
+        <section class="hero-card" id="hero-section"
             style="background-image: url('https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Homepage-Card-Model-3-Desktop-US_PR_MX.jpg');">
             <div class="card-content centered">
-                <h1 class="card-title text-white">Model 3</h1>
-                <p class="card-subtitle text-white">2.99% APR Available</p>
+                <h1 class="card-title text-white" id="hero-title">Model 3</h1>
+                <p class="card-subtitle text-white" id="hero-subtitle">2.99% APR Available</p>
                 <div class="card-buttons">
-                    <a href="#" class="btn btn-primary">Order Now</a>
+                    <a href="#" class="btn btn-primary" id="hero-order-btn">Order Now</a>
                     <a href="#" class="btn btn-white">View Inventory</a>
                 </div>
             </div>
+            <!-- Carousel Arrows -->
+            <button id="hero-prev" class="carousel-arrow arrow-left" aria-label="Previous Slide">&#10094;</button>
+            <button id="hero-next" class="carousel-arrow arrow-right" aria-label="Next Slide">&#10095;</button>
+
             <!-- Pagination dots placeholder -->
-            <div class="carousel-dots">
-                <span class="dot active"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
+            <div class="carousel-dots" id="hero-dots">
+                <span class="dot active" data-index="0"></span>
+                <span class="dot" data-index="1"></span>
+                <span class="dot" data-index="2"></span>
+                <span class="dot" data-index="3"></span>
             </div>
         </section>
 
         <!-- Grid Section -->
-        <div class="grid-layout">
+        <div class="grid-layout" id="vehicles-grid">
 
             <!-- Model Y -->
             <div class="card"
@@ -93,56 +141,24 @@
                 </div>
             </div>
 
-            <!-- Model 3 Card -->
-            <div class="card"
-                style="background-image: url('https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Homepage-Card-Model-3-Desktop-US_PR_MX.jpg');">
-                <div class="card-content top-left">
-                    <span class="card-tag">Sport Sedan</span>
-                    <h2 class="card-title text-white">Model 3</h2>
-                    <div class="card-buttons horizontal">
-                        <a href="#" class="btn btn-primary-small">Order Now</a>
-                        <a href="#" class="btn btn-white-small">Learn More</a>
-                    </div>
-                </div>
-            </div>
+            <!-- ... (Model 3 Card) ... -->
 
             <!-- Current Offers -->
-            <div class="card bg-gray"
+            <div class="card bg-gray" id="discover-section"
                 style="background-image: url('https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Homepage-Grid-Current-Offers.jpg'); background-size: contain; background-position: right;">
-                <div class="card-content top-left dark-text">
-                    <h2 class="card-title">Current Offers</h2>
-                    <p class="card-desc">Explore limited-time offers on Tesla vehicles.</p>
-                    <div class="card-buttons">
-                        <a href="#" class="btn btn-white-outline">Learn More</a>
-                    </div>
-                </div>
+                <!-- ... -->
             </div>
 
-            <!-- American Heroes -->
-            <div class="card bg-gray"
-                style="background-image: url('https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Homepage-Grid-American-Heroes-v2.jpg'); background-size: contain; background-position: right;">
-                <div class="card-content top-left dark-text">
-                    <h2 class="card-title">American Heroes</h2>
-                    <p class="card-desc">$500 off for military, first responders, healthcare, teachers and students.</p>
-                    <div class="card-buttons">
-                        <a href="#" class="btn btn-white-outline">Learn More</a>
-                    </div>
-                </div>
-            </div>
+            <!-- ... (American Heroes) ... -->
 
-            <!-- FSD / Autonomy (Using cyber placeholder if needed, or hero image) -->
+            <!-- FSD -->
             <div class="card full-width"
                 style="background-image: url('https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Homepage-FSD-Safety-Report-Split-Desktop.jpg');">
-                <div class="card-content top-left">
-                    <h2 class="card-title text-white">Full Self-Driving (Supervised)</h2>
-                    <div class="card-buttons">
-                        <a href="#" class="btn btn-primary-small">Learn More</a>
-                    </div>
-                </div>
+                <!-- ... -->
             </div>
 
             <!-- Solar Panels -->
-            <div class="card"
+            <div class="card" id="energy-section"
                 style="background-image: url('https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Homepage-Card-Solar-Panels-Desktop-v2.jpg');">
                 <div class="card-content top-left">
                     <h2 class="card-title text-white">Solar Panels</h2>
@@ -155,7 +171,7 @@
             </div>
 
             <!-- Powerwall -->
-            <div class="card"
+            <div class="card" id="charging-section"
                 style="background-image: url('https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Homepage-Card-Powerwall-Desktop.png');">
                 <div class="card-content top-left">
                     <h2 class="card-title text-black">Powerwall</h2>
@@ -183,6 +199,32 @@
 
     </main>
 
+    <!-- Custom Modal (Feature 2) -->
+    <div id="order-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Order Your Tesla</h2>
+            <p>Enter your details to proceed.</p>
+            <form id="order-form">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" placeholder="John Doe">
+                    <small class="error-msg"></small>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="text" id="email" placeholder="john@example.com">
+                    <small class="error-msg"></small>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" placeholder="(555) 123-4567">
+                </div>
+                <button type="submit" class="btn btn-primary full-width">Submit Order</button>
+            </form>
+        </div>
+    </div>
+
     <!-- Sticky Bottom Bar -->
     <div class="sticky-bar">
         <button class="sticky-btn">
@@ -193,6 +235,7 @@
         </button>
     </div>
 
+    <script src="script.js"></script>
 </body>
 
 </html>

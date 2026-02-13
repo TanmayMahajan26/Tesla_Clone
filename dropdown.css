@@ -1,0 +1,88 @@
+/* ===================================
+   Feature 1: Vehicles Dropdown
+   =================================== */
+.vehicles-dropdown {
+    position: fixed;
+    top: 54px;
+    /* Height of header approx */
+    left: 0;
+    right: 0;
+    background-color: white;
+    padding: 40px 0;
+    z-index: 900;
+    transform: translateY(-150%);
+    transition: transform 0.4s ease-in-out;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.vehicles-dropdown.visible {
+    transform: translateY(0);
+}
+
+.dropdown-content {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.vehicle-item {
+    text-align: center;
+    width: 200px;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.3s ease;
+}
+
+/* Staggered animation for items when opening */
+.vehicles-dropdown.visible .vehicle-item {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.vehicles-dropdown.visible .vehicle-item:nth-child(1) {
+    transition-delay: 0.1s;
+}
+
+.vehicles-dropdown.visible .vehicle-item:nth-child(2) {
+    transition-delay: 0.2s;
+}
+
+.vehicles-dropdown.visible .vehicle-item:nth-child(3) {
+    transition-delay: 0.3s;
+}
+
+.vehicles-dropdown.visible .vehicle-item:nth-child(4) {
+    transition-delay: 0.4s;
+}
+
+.vehicle-item img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.vehicle-item h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--color-dark);
+}
+
+.vehicle-item .links {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.vehicle-item .links a {
+    font-size: 14px;
+    color: #5c5e62;
+    text-decoration: underline;
+}
+
+.vehicle-item .links a:hover {
+    color: var(--color-dark);
+    font-weight: 500;
+}
