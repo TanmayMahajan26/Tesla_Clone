@@ -296,11 +296,51 @@ a {
     color: var(--color-dark);
 }
 
+.card-desc {
+    font-size: 14px;
+    margin-bottom: 16px;
+    max-width: 300px;
+    line-height: 1.5;
+}
+
+.card-desc.text-white {
+    color: var(--color-white);
+    text-shadow: var(--text-shadow);
+}
+
+.card-desc.text-black {
+    color: var(--color-dark);
+}
+
 .dark-text .card-desc {
     color: var(--color-dark);
     margin-bottom: 16px;
     max-width: 300px;
     line-height: 1.4;
+}
+
+/* FSD Card Centered Layout */
+.fsd-card {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 60px;
+}
+
+.fsd-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 250px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+    z-index: 1;
+}
+
+.fsd-content {
+    z-index: 2;
+    text-align: center;
 }
 
 /* ===================================
