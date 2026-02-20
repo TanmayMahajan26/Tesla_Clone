@@ -3,7 +3,7 @@ import Navbar from '../Navbar/Navbar';
 import ThemeToggle from '../ThemeToggle/ThemeToggle';
 import VehiclesDropdown from '../VehiclesDropdown/VehiclesDropdown';
 
-export default function Header({ theme, onThemeToggle }) {
+export default function Header({ theme, onThemeToggle, user, onLoginClick, onLogoutClick, onShopClick }) {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [activeNav, setActiveNav] = useState('');
@@ -42,7 +42,11 @@ export default function Header({ theme, onThemeToggle }) {
     };
 
     const handleNavItemClick = (label) => {
-        setActiveNav(label);
+        if (label === 'Shop') {
+            onShopClick();
+        } else {
+            setActiveNav(label);
+        }
         setIsDropdownOpen(false);
     };
 
@@ -52,7 +56,9 @@ export default function Header({ theme, onThemeToggle }) {
                 <div className="header-container">
                     {/* Logo */}
                     <a href="#" className="logo">
-                        <span className="logo-text">TESLA</span>
+                        <svg viewBox="0 0 342 35" xmlns="http://www.w3.org/2000/svg" className="logo-svg">
+                            <path d="M0 .1a9.7 9.7 0 0 0 7 7h11l.5.1v27.6h6.8V7.3L26 7h11a9.8 9.8 0 0 0 7-7H0zm238.6 0h-6.8v34.8H263a9.7 9.7 0 0 0 6-6.8h-30.3V0zm-52.3 6.8c3.6-1 6.6-3.8 7.4-6.9l-38.1.1v20.6h31.1v7.2h-24.4a13.6 13.6 0 0 0-8.7 7h39.9v-21h-31.2v-7h24zm116.2 28h6.7v-14h24.6v14h6.7v-21h-38zM85.3 7h26a9.6 9.6 0 0 0 7.1-7H78.3a9.6 9.6 0 0 0 7 7m0 13.8h26a9.6 9.6 0 0 0 7.1-7H78.3a9.6 9.6 0 0 0 7 7m0 14.1h26a9.6 9.6 0 0 0 7.1-7H78.3a9.6 9.6 0 0 0 7 7M308.5 7h26a9.6 9.6 0 0 0 7-7h-40a9.6 9.6 0 0 0 7 7" fill="currentColor"></path>
+                        </svg>
                     </a>
 
                     {/* Nav Center - Feature 5: Active Nav Highlight */}
@@ -81,14 +87,22 @@ export default function Header({ theme, onThemeToggle }) {
                                 />
                             </svg>
                         </a>
-                        <a href="#" aria-label="Account">
-                            <svg viewBox="0 0 24 24" className="icon">
-                                <path
-                                    d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
-                                    fill="currentColor"
-                                />
-                            </svg>
-                        </a>
+                        <button
+                            className="icon-btn"
+                            onClick={user ? onLogoutClick : onLoginClick}
+                            aria-label="Account"
+                        >
+                            {user ? (
+                                <span className="user-name">{user.name}</span>
+                            ) : (
+                                <svg viewBox="0 0 24 24" className="icon">
+                                    <path
+                                        d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+                                        fill="currentColor"
+                                    />
+                                </svg>
+                            )}
+                        </button>
                     </div>
                 </div>
 

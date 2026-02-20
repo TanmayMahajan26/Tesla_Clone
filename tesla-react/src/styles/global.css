@@ -3,6 +3,13 @@
    Reference: www.tesla.com
    =================================== */
 
+/* Global Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 :root {
     --color-primary: #3e6ae1;
     --color-dark: #171a20;
@@ -175,12 +182,244 @@ a {
 }
 
 /* Logo */
-.logo-text {
-    font-size: 18px;
-    font-weight: 600;
-    letter-spacing: 4px;
+.logo {
+    z-index: 10;
+}
+
+.logo-svg {
+    height: 16px;
+    width: auto;
+    fill: currentColor;
+    display: block;
     color: var(--color-dark);
-    text-transform: uppercase;
+}
+
+[data-theme="dark"] .logo-svg {
+    color: #e4e4e4;
+}
+
+.header.scrolled .logo-svg {
+    color: var(--color-dark);
+}
+
+[data-theme="dark"] .header.scrolled .logo-svg {
+    color: #e4e4e4;
+}
+
+.logo-text {
+    /* Removed */
+}
+
+/* Modal Overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.modal-overlay.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Modal Content */
+.login-logo {
+    margin-bottom: 24px;
+    text-align: left;
+}
+
+.tesla-logo-modal {
+    height: 16px;
+    color: var(--color-dark);
+}
+
+.modal-content {
+    background: white;
+    padding: 40px;
+    border-radius: 24px;
+    width: 100%;
+    max-width: 480px;
+    position: relative;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
+    animation: modalSlideUp 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.action-modal {
+    max-width: 600px;
+}
+
+.modal-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.modal-header h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: #171a20;
+}
+
+.modal-header p {
+    color: #5c5e62;
+    font-size: 0.9rem;
+}
+
+.close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #5c5e62;
+}
+
+.close-btn-absolute {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #f4f4f4;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #171a20;
+}
+
+/* Forms */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.login-form input,
+.action-form input,
+.action-form textarea,
+.inventory-search input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #e2e2e2;
+    border-radius: 12px;
+    background: #f4f4f4;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+
+.login-form input:focus,
+.action-form input:focus {
+    background: #fff;
+    outline: 2px solid #e2e2e2;
+    border-color: transparent;
+}
+
+.form-row {
+    display: flex;
+    gap: 1rem;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.divider {
+    text-align: center;
+    margin: 1.5rem 0;
+    position: relative;
+}
+
+.divider:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    /* width: 100%; */
+    /* border-top: 1px solid #e2e2e2; */
+    /* z-index: 0; */
+}
+
+.divider span {
+    background: white;
+    padding: 0 10px;
+    color: #5c5e62;
+    font-size: 0.8rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* Car Selector (Grid) */
+.car-selector {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 2rem;
+}
+
+.car-option {
+    border: 2px solid transparent;
+    border-radius: 8px;
+    padding: 10px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s;
+    background: #f9f9f9;
+}
+
+.car-option:hover {
+    background: #f0f0f0;
+}
+
+.car-option.selected {
+    border-color: #3e6ae1;
+    background: #f0f4ff;
+}
+
+.car-option img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 5px;
+}
+
+.car-option span {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #393c41;
+}
+
+/* Success Message */
+.success-message {
+    text-align: center;
+    padding: 2rem;
+}
+
+.check-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #3e6ae1;
+    color: white;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
 }
 
 /* Nav Center */
@@ -221,6 +460,41 @@ a {
     width: 24px;
     height: 24px;
     fill: var(--color-dark);
+}
+
+.icon-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+    color: var(--color-dark);
+}
+
+.icon-btn .icon {
+    fill: currentColor;
+}
+
+.icon-btn:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] .icon-btn {
+    color: var(--color-dark);
+}
+
+[data-theme="dark"] .icon-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Remove default focus outline for aesthetics */
+button:focus,
+input:focus {
+    outline: none;
 }
 
 /* Theme Toggle */
@@ -329,12 +603,17 @@ a {
 }
 
 /* Buttons */
-.btn {
+.btn,
+.btn-primary,
+.btn-white,
+.btn-primary-small,
+.btn-white-small,
+.btn-white-outline {
     display: inline-flex;
     justify-content: center;
     align-items: center;
     padding: 10px 40px;
-    border-radius: 4px;
+    border-radius: 40px;
     font-size: 14px;
     font-weight: 500;
     transition: all 0.2s ease;
@@ -744,7 +1023,7 @@ a {
     align-items: center;
     gap: 6px;
     padding: 8px 12px;
-    border-radius: 20px;
+    border-radius: 30px;
     color: inherit;
 }
 

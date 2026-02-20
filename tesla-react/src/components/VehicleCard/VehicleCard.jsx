@@ -36,24 +36,6 @@ export default function VehicleCard({ card, onOrderClick }) {
 
     const contentClasses = isFsd ? 'card-content centered fsd-content' : 'card-content top-left';
 
-    const getButtonClass = (style) => {
-        const map = {
-            'primary': 'btn btn-primary',
-            'white': 'btn btn-white',
-            'primary-small': 'btn btn-primary-small',
-            'white-small': 'btn btn-white-small',
-            'white-outline': 'btn btn-white-outline'
-        };
-        return map[style] || 'btn';
-    };
-
-    const handleButtonClick = (e, action) => {
-        e.preventDefault();
-        if (action === 'order') {
-            onOrderClick();
-        }
-    };
-
     return (
         <div className={cardClasses} style={cardStyle} id={sectionId || undefined}>
             <div className={contentClasses}>
@@ -63,14 +45,13 @@ export default function VehicleCard({ card, onOrderClick }) {
                 {subtitle && <p className={`card-subtitle ${textClass}`}>{subtitle}</p>}
                 <div className={`card-buttons ${isFsd ? '' : 'horizontal'}`}>
                     {buttons.map((btn, i) => (
-                        <a
+                        <button
                             key={i}
-                            href="#"
-                            className={getButtonClass(btn.style)}
-                            onClick={(e) => handleButtonClick(e, btn.action)}
+                            className={`btn btn-${btn.style}`}
+                            onClick={() => btn.action === 'order' ? onOrderClick() : onLearnClick()}
                         >
                             {btn.text}
-                        </a>
+                        </button>
                     ))}
                 </div>
             </div>

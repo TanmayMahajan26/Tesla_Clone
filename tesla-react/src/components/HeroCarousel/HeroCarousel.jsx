@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 
-export default function HeroCarousel({ slides }) {
+export default function HeroCarousel({ slides, onOrderClick, onDemoDriveClick }) {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     // Feature 4: Auto-advance slider with useEffect
@@ -29,12 +29,12 @@ export default function HeroCarousel({ slides }) {
                 <h1 className="card-title text-white">{currentSlide.model}</h1>
                 <p className="card-subtitle text-white">{currentSlide.subtitle}</p>
                 <div className="card-buttons">
-                    <a href="#" className="btn btn-primary" onClick={(e) => e.preventDefault()}>
+                    <button className="btn-primary" onClick={onOrderClick}>
                         Order Now
-                    </a>
-                    <a href="#" className="btn btn-white" onClick={(e) => e.preventDefault()}>
-                        View Inventory
-                    </a>
+                    </button>
+                    <button className="btn-white" onClick={onDemoDriveClick}>
+                        Demo Drive
+                    </button>
                 </div>
             </div>
 
